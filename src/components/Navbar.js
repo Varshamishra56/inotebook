@@ -1,7 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  });
   return (
     <nav
       className="navbar navbar-expand navbar-dark bg-dark"
@@ -9,7 +13,7 @@ const Navbar = () => {
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Always expand
+          iNotebook
         </a>
         <button
           className="navbar-toggler"
@@ -26,12 +30,24 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarsExample02">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/" ? "active" : ""
+                } `}
+                aria-current="page"
+                to="/"
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/about">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/about" ? "active" : ""
+                } `}
+                aria-current="page"
+                to="/about"
+              >
                 About
               </Link>
             </li>
