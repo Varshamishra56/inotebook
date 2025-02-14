@@ -54,9 +54,6 @@ const AddNote = () => {
             id="exampleCheck1"
             onChange={onChange}
           />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
-          </label>
         </div>
         <button type="submit" className="btn btn-primary" onClick={handleClick}>
           Add
