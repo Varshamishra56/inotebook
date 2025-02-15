@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import noteContext from "../context/notes/noteContext";
 
-const Noteitem = ({ note }) => {
+const Noteitem = ({ note, updateNote }) => {
   const context = useContext(noteContext);
   const { deleteNote, editNote } = context;
 
@@ -23,7 +23,7 @@ const Noteitem = ({ note }) => {
 
             <button
               className="btn btn-primary btn-sm d-flex align-items-center"
-              onClick={editNote}
+              onClick={() => updateNote(note)}
             >
               <i className="fa-solid fa-pen-to-square me-1"></i> Edit
             </button>
