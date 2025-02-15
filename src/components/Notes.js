@@ -141,6 +141,7 @@ const Notes = () => {
                 type="button"
                 className="btn btn-primary"
                 onClick={handleClick}
+                disabled={note.title.length < 6 || note.description.length < 6}
               >
                 Update Note
               </button>
