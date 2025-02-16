@@ -12,15 +12,18 @@ const Notes = () => {
   useEffect(() => {
     getNotes();
   }, []);
+
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
+
   const [note, setNote] = useState({
     id: "",
     title: "",
     description: "",
     tag: "default",
   });
+
   const refClose = useRef(null);
   const handleClick = (e) => {
     e.preventDefault();
@@ -84,7 +87,6 @@ const Notes = () => {
                   name="title"
                   className="form-control"
                   id="title"
-                  aria-describedby="emailHelp"
                   onChange={onChange}
                   value={note.title}
                 />
@@ -98,7 +100,6 @@ const Notes = () => {
                   name="description"
                   className="form-control"
                   id="description"
-                  aria-describedby="emailHelp"
                   onChange={onChange}
                   value={note.description}
                 />
@@ -112,17 +113,8 @@ const Notes = () => {
                   name="tag"
                   className="form-control"
                   id="tag"
-                  aria-describedby="emailHelp"
                   onChange={onChange}
                   value={note.tag}
-                />
-              </div>
-              <div className="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="exampleCheck1"
-                  onChange={onChange}
                 />
               </div>
             </form>
@@ -150,11 +142,15 @@ const Notes = () => {
 
       <div className="container my-3">
         <h2>Your Notes</h2>
-        <div className="row">
-          {notes.map((note) => (
-            <Noteitem key={note._id} note={note} updateNote={updateNote} />
-          ))}
-        </div>
+        {notes.length === 0 ? (
+          <p className="text-muted">There are no notes to display.</p>
+        ) : (
+          <div className="row">
+            {notes.map((note) => (
+              <Noteitem key={note._id} note={note} updateNote={updateNote} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
