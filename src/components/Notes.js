@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import noteContext from "../context/notes/noteContext";
 import Noteitem from "./Noteitem";
 import AddNote from "./AddNote";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JS
 
 const Notes = () => {
   const context = useContext(noteContext);
   const { notes, getNotes, editNote } = context;
 
-  const [modalNote, setModalNote] = useState(null); // State for selected note
+  const [modalNote, setModalNote] = useState(null);
 
   useEffect(() => {
     getNotes();

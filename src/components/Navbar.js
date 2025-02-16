@@ -50,12 +50,16 @@ const Navbar = () => {
             </li>
           </ul>
           <form role="search">
-            <input
-              className="form-control"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
+            <Link to={"/signup"} className="btn btn-primary mx-2" type="submit">
+              SignUp
+            </Link>
+            <Link
+              to={"/login"}
+              type="button"
+              className="btn btn-outline-primary"
+            >
+              Login
+            </Link>
           </form>
         </div>
       </div>

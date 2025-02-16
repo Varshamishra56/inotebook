@@ -16,6 +16,7 @@ const AddNote = () => {
   const handleClick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
+    setNote({ title: "", description: "", tag: "" });
   };
   return (
     <div className="container my-5">
@@ -32,6 +33,7 @@ const AddNote = () => {
             id="title"
             aria-describedby="emailHelp"
             onChange={onChange}
+            value={note.title}
           />
         </div>
         <div className="mb-3">
@@ -45,6 +47,7 @@ const AddNote = () => {
             id="description"
             aria-describedby="emailHelp"
             onChange={onChange}
+            value={note.description}
           />
         </div>
         <div className="mb-3">
@@ -58,14 +61,7 @@ const AddNote = () => {
             id="tag"
             aria-describedby="emailHelp"
             onChange={onChange}
-          />
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-            onChange={onChange}
+            value={note.tag}
           />
         </div>
         <button
