@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import noteContext from "./noteContext";
 
 const NoteState = (props) => {
-  const host = "https://inotebookbackend-five.vercel.app";
+  const host = "http://localhost:3000";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
   //Get all notes
